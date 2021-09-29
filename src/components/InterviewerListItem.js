@@ -1,6 +1,6 @@
 import React from "react";
 import "components/InterviewerListItem.scss";
-const classNames = require('classnames');
+import classNames from 'classnames';
 
 
 export default function InterviewerListItem(props) {
@@ -20,4 +20,3 @@ export default function InterviewerListItem(props) {
     </li>
   );
 }
-
