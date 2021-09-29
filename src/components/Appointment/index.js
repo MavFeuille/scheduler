@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "components/Appointment/styles.scss";
+import "components/Appointment";
 
 
 
