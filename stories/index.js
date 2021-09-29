@@ -155,3 +155,10 @@ storiesOf("Appointment", module)
       onDelete={action("onDelete")}
     />
   ))
+  .add("Confirm", () => (
+    <Confirm
+      message="Delete the appointement?"
+      onConfirm={action("onConfirm")}
+      onCancel={action("onCancel")}
+    />
+  ))
