@@ -9,9 +9,10 @@ import DayListItem from "components/DayListItem";
 import DayList from "components/DayList";
 import InterviewerListItem from "components/InterviewerListItem";
 import InterviewerList from "components/InterviewerList";
-import Appointment from "components/Appointment/index"
+import Appointment from "components/Appointment/index";
 import Header from "components/Appointment/Header";
-import Empty from "components/Appointment/Empty"
+import Empty from "components/Appointment/Empty";
+import Show from "components/Appointment/Show";
 
 // Stories of Button
 storiesOf("Button", module)
