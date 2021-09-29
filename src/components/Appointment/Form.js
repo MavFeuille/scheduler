@@ -1,8 +1,8 @@
 import React from 'react';
-import InterviewerList from 'components/InterviewerList';
+import InterviewerList from "components/InterviewerList";
 import Button from "components/Button";
 
-export default function Form(props) {
+export default function Form({name, interviewer, setInterviewer, interviewers, onCancel, onSave}) {
   
   return (
     <main className="appointment__card appointment__card--create">
@@ -10,7 +10,7 @@ export default function Form(props) {
         <form autoComplete="off">
           <input
             className="appointment__create-input text--semi-bold"
-            name="name"
+            name={name}
             type="text"
             placeholder="Enter Student Name"
             /*
@@ -19,15 +19,15 @@ export default function Form(props) {
           />
         </form>
         <InterviewerList
-          interviewers={props.interviewers}
+          interviewers={interviewers}
           value={interviewer}
           onChange={setInterviewer}
         />
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger>Cancel</Button>
-          <Button confirm>Save</Button>
+          <Button danger onClick={onCancel}>Cancel</Button>
+          <Button confirm onClick={onSave}>Save</Button>
         </section>
       </section>
     </main>
