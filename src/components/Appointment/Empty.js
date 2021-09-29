@@ -1,4 +1,5 @@
 import React from 'react';
+import "components/Appointment/styles.scss"
 
 export default function Empty(props) {
   
@@ -10,6 +11,6 @@ export default function Empty(props) {
         alt="Add"
         onClick={props.onAdd}
       />
-    </main>
+  </main>
   )
 }
