@@ -11,6 +11,6 @@ export default function Empty(props) {
         alt="Add"
         onClick={props.onAdd}
       />
-  </main>
+    </main>
   )
 }
