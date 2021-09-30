@@ -78,7 +78,9 @@ export default function Application(props) {
     return (
       <Appointment
         key={appointment.id}
-        {...appointment}
+        id={appointment.id}
+        time={appointment.time}
+        interview={appointment.interview}
       />
     )
   });
@@ -109,6 +111,7 @@ export default function Application(props) {
       </section>
       <section className="schedule">
         {appointmentList}
+        <Appointment key="last" time="5pm" />
       </section>
     </main>
   );
