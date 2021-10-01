@@ -83,17 +83,21 @@ export default function Application(props) {
   }, [])
   // console.log("======>Interviewers : ", state.interviewers)
 
-  const dailyAppointments = getAppointmentsForDay(state, state.day);
+  const appointments = getAppointmentsForDay(state, state.day);
 
   // const dailyAppointments = [];
-  const appointmentList = dailyAppointments.map(appointment => {
+  const schedule = appointments.map(appointment => {
+    const interview = getInterview(state, appointment.interview);
     return (  
-      <Appointment key={appointment.id}
-        {...appointment}
+      <Appointment 
+        key={appointment.id}
+        id={appointment.id}
+        time={appointment.time}
+        interview={appointment.interview}
       />
     )
   });
-  console.log("======> appointmentList: ", appointmentList)
+  console.log("======> schedule: ", schedule)
 
 
   return (
@@ -120,7 +124,7 @@ export default function Application(props) {
         />
       </section>
       <section className="schedule">
-        {appointmentList}
+        {schedule}
         <Appointment key="last" time="5pm" />
       </section>
     </main>
