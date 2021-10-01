@@ -54,10 +54,11 @@ const appointments = [
 
 export default function Application(props) {
 
-  const [day, setDay] = useState(["Monday"]);
-  console.log(day);
-
-  const [days, setDays] = useState([]);
+  const [state, setState] = useState({
+    day: "Monday",
+    days: [],
+    appointments: {}
+  });
 
   useEffect(() => {
     axios
@@ -88,9 +89,9 @@ export default function Application(props) {
         <hr className="sidebar__separator sidebar--centered"/>
         <nav className="sidebar__menu">
         <DayList
-          days={days}
-          day={day}
-          setDay={setDay}
+          days={state.days}
+          day={state.day}
+          setDay={state.setDay} //or day => setState(day)
           // day => console.log(day)
         />
         </nav>

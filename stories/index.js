@@ -101,7 +101,7 @@ storiesOf("InterviewerListItem", module)
       id={interviewer.id}
       name={interviewer.name}
       avatar={interviewer.avatar}
-      selected
+      selected 
     />
   ))
   .add("Clickable", () => (
