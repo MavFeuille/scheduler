@@ -52,28 +52,21 @@ const appointments = [
 ];
 
 
-const days = [
-  {
-    id: 1,
-    name: "Monday",
-    spots: 2,
-  },
-  {
-    id: 2,
-    name: "Tuesday",
-    spots: 5,
-  },
-  {
-    id: 3,
-    name: "Wednesday",
-    spots: 0,
-  },
-];
-
 export default function Application(props) {
 
-  const [day, setDay] = useState("Monday");
+  const [day, setDay] = useState(["Monday"]);
   console.log(day);
+
+  const [days, setDays] = useState([]);
+
+  useEffect(() => {
+    axios
+    .get("/api/days")
+    .then(response => {
+      // console.log(response.data);
+      setDays(response.data)});
+  }, [])
+
 
   const appointmentList = appointments.map(appointment => {
     return (
