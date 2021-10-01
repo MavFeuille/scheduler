@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "components/Application.scss";
 import DayList from "./DayList";
 import Appointment from "components/Appointment";
@@ -74,7 +75,7 @@ export default function Application(props) {
   const [day, setDay] = useState("Monday");
   console.log(day);
 
-  const appointmentList= appointments.map(appointment => {
+  const appointmentList = appointments.map(appointment => {
     return (
       <Appointment
         {...appointment}
