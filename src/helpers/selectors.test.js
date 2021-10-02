@@ -1,4 +1,4 @@
-import { getAppointmentsForDay } from "helpers/selectors";
+import { getAppointmentsForDay, getInterview } from "helpers/selectors";
 
 const state = {
   days: [
@@ -27,8 +27,22 @@ const state = {
       time: "4pm",
       interview: { student: "Chad Takahashi", interviewer: 2 }
     }
+  },
+  interviewers: {
+    "1": {  
+      "id": 1,
+      "name": "Sylvia Palmer",
+      "avatar": "https://i.imgur.com/LpaY82x.png"
+    },
+    "2": {
+      id: 2,
+      name: "Tori Malcolm",
+      avatar: "https://i.imgur.com/Nmx0Qxo.png"
+    }
   }
 };
+
+
 
 test("getAppointmentsForDay returns an array", () => {
   const result = getAppointmentsForDay(state, "Monday");

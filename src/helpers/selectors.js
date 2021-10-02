@@ -1,3 +1,6 @@
+import InterviewerList from "components/InterviewerList";
+
+
 export function getAppointmentsForDay(state, day) {
   let appointments = [];
 
@@ -12,3 +15,18 @@ export function getAppointmentsForDay(state, day) {
   }
   return appointments;
 }
+
+export function getInterview(state, interview) {
+  
+  if (!interview) {
+    return null;
+  } else {
+    const interviewerID = interview.interviewer;
+    const interviewerObject = {
+      student: interview.student,
+      interviewer: state.interviewers[interviewerID]
+    }
+    return interviewerObject
+  }
+}
+
