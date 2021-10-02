@@ -6,7 +6,6 @@ export default function useVisualMode(initial) {
 
   //Transit state to a new mode
   const transition = (newMode, replace = false) => {
-    
     setMode(newMode);
     // console.log(">>>>newMode: ", newMode);
 
