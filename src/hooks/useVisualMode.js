@@ -10,9 +10,9 @@ export default function useVisualMode(initial) {
     // console.log(">>>>newMode: ", newMode);
 
     if (!replace) {
-      const newHistory = [...history];
+      const newHistory = [...history, newMode];
       // console.log("=== original newHistory === :", newHistory);
-      newHistory.push(newMode);
+      // newHistory.push(newMode);
       setHistory(newHistory);
       console.log("=== newHistory === :", newHistory);
     }
@@ -21,9 +21,15 @@ export default function useVisualMode(initial) {
   // Revert back to previous mode but not go over initial mode
   const back = () => {
     if (history.length > 1) {
-      history.pop();
-      setMode(history[history.length - 1]);
-      // console.log("----> history: ", history)
+      // console.log("history length :", history.length);
+      const newHistory2 = history.slice(0, -1);
+      console.log("history: ", history);
+
+      setHistory(newHistory2);
+      console.log("******setHistory -> newHistory2 <-: ", newHistory2);
+     
+      setMode(newHistory2[newHistory2.length - 1]);
+      console.log("----> newHistory2.length -1 : ", newHistory2[newHistory2.length - 1]);
     }
   }
   return { mode, transition, back };

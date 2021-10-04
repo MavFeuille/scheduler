@@ -39,7 +39,7 @@ export function getInterviewersForDay(state, day) {
   //Then map with days.appointments with appointments object
   if (filteredAppointmentsDays.length) {
       interviewersArray = filteredAppointmentsDays[0].interviewers.map(
-        interviewer => state.interviewers[interviewer]
+        interviewer => {return state.interviewers[interviewer]}
       );
   }
   return interviewersArray;
