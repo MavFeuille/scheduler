@@ -3,12 +3,14 @@ import Header from "components/Appointment/Header";
 import Form from "components/Appointment/Form";
 import Show from "components/Appointment/Show";
 import Empty from "components/Appointment/Empty";
+import Status from "components/Appointment/Status";
 
 import useVisualMode from "hooks/useVisualMode";
 
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE";
+const SAVING = "SAVING";
 
 export default function Appointment(props) {
   
@@ -32,7 +34,11 @@ export default function Appointment(props) {
   return (
     <article className="appointment">
       <Header time={props.time} />
-        {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
+        {mode === EMPTY && (
+          <Empty
+            onAdd={() => transition(CREATE)} 
+          />
+        )}
         {mode === SHOW && (
           <Show
             student={props.interview.student}
@@ -45,6 +51,9 @@ export default function Appointment(props) {
             onCancel={back}
             onSave={save}
           />
+        )}
+        {mode === SAVING && (
+          <Status />
         )}
     </article>
   );
