@@ -25,7 +25,9 @@ export default function Appointment(props) {
       interviewer
     };
 
-    props.bookInterview(props.id, interview)
+    transition(SAVING);
+
+    const saving = props.bookInterview(props.id, interview)
       .then(() => {
         transition(SHOW);
       })
@@ -53,7 +55,9 @@ export default function Appointment(props) {
           />
         )}
         {mode === SAVING && (
-          <Status />
+          <Status 
+            message="Saving..."
+          />
         )}
     </article>
   );

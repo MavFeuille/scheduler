@@ -73,9 +73,9 @@ export default function Application(props) {
     ]).then(response => {
       // console.log(response.data);
       setState(
-        // prev => ({
-        // ...prev,
-        ({
+        prev => ({
+        ...prev,
+        // ({
         days: response[0].data,
         appointments: response[1].data,
         interviewers: response[2].data
