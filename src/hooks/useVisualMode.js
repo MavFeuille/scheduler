@@ -23,13 +23,13 @@ export default function useVisualMode(initial) {
     if (history.length > 1) {
       // console.log("history length :", history.length);
       const newHistory2 = history.slice(0, -1);
-      console.log("history: ", history);
+      // console.log("history: ", history);
 
       setHistory(newHistory2);
-      console.log("******setHistory -> newHistory2 <-: ", newHistory2);
+      // console.log("******setHistory -> newHistory2 <-: ", newHistory2);
      
       setMode(newHistory2[newHistory2.length - 1]);
-      console.log("----> newHistory2.length -1 : ", newHistory2[newHistory2.length - 1]);
+      // console.log("----> newHistory2.length -1 : ", newHistory2[newHistory2.length - 1]);
     }
   }
   return { mode, transition, back };
