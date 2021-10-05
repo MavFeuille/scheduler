@@ -5,6 +5,7 @@ import Show from "components/Appointment/Show";
 import Empty from "components/Appointment/Empty";
 import Status from "components/Appointment/Status";
 import Confirm from "components/Appointment/Confirm";
+import ERROR from "components/Appointment/Error";
 
 import useVisualMode from "hooks/useVisualMode";
 
@@ -15,6 +16,8 @@ const SAVING = "SAVING";
 const DELETING = "DELETING";
 const CONFIRM = "CONFIRM"
 const EDIT = "EDIT";
+const ERROR_SAVE = "ERROR_SAVE";
+const ERROR_DELETE = "ERROR_DELETE";
 
 export default function Appointment(props) {
   
@@ -35,16 +38,18 @@ export default function Appointment(props) {
       .then(() => {
         transition(SHOW);
       })
+      .catch(error => transition(ERROR_SAVE, true));
   }
 
-  const deleting = () => {
+  const deleting = (event) => {
 
-    transition(DELETING);
+    transition(DELETING, true);
 
     const deletingInterview = props.cancelInterview(props.id)
       .then(() => {
         transition(EMPTY);
       })
+      .catch(error => transition(ERROR_DELETE, true));
   }
 
   const edit = () => {
@@ -98,6 +103,18 @@ export default function Appointment(props) {
             interviewers={props.interviewers}
             onCancel={back}
             onSave={save}
+          />
+        )}
+        {mode === ERROR_SAVE && (
+          <ERROR 
+            message="Fail to save your appointment"
+            onClose={() => back()}
+          />
+        )}
+        {mode === ERROR_DELETE && (
+          <ERROR 
+            message="Fail to delete your appointment"
+            onClose={() => back()}
           />
         )}
 
