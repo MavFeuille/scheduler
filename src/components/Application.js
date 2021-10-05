@@ -9,11 +9,13 @@ import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "help
 export default function Application(props) {
 
   const {
+    setState,
     state,
     setDay,
     bookInterview,
     cancelInterview
   } = useApplicationData();
+
 
   
   const appointments = getAppointmentsForDay(state, state.day);
