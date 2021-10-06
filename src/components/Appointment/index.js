@@ -24,6 +24,7 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
+  //Action when save button is clicked
   const save = (name, interviewer) => {
     const interview = {
       student: name,
@@ -40,6 +41,7 @@ export default function Appointment(props) {
       .catch((error) => transition(ERROR_SAVE, true));
   };
 
+  //Action when delete button is clicked
   const deleting = (event) => {
     transition(DELETING, true);
 
@@ -51,6 +53,7 @@ export default function Appointment(props) {
       .catch((error) => transition(ERROR_DELETE, true));
   };
 
+  //Action for edit button
   const edit = () => {
     transition(EDIT);
   };

@@ -20,7 +20,7 @@ export default function Form(props) {
     props.onCancel();
   };
 
-  //Action if name field is empty
+  //Action if student name inpupt field is empty OR Interview is not being selected
   const validate = () => {
     if (name === "") {
       setError("Student name cannot be blank");
@@ -66,7 +66,6 @@ export default function Form(props) {
           >
             Save
           </Button>
-          {/* <Button onClick={event => props.onSave(name, interviewer)}>Save</Button> */}
         </section>
       </section>
     </main>

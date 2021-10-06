@@ -29,6 +29,7 @@ export default function useApplicationData() {
     });
   }, [setState]);
 
+  
   const bookInterview = (id, interview) => {
     console.log(id, interview);
 
@@ -42,16 +43,11 @@ export default function useApplicationData() {
       [id]: appointment,
     };
 
-    //Filter days Array to get that day's name
+    //Steps to get remaining spots when appointment is booked
     const filteredAppointmentsDays = state.days.findIndex((singleDay) =>
       singleDay.appointments.includes(id)
     );
-
-    // const day = {
-    //   ...state.days[filteredAppointmentsDays],
-    //   spots: state.days[filteredAppointmentsDays].spots - 1
-    // }
-
+   
     let day = {
       ...state.days[filteredAppointmentsDays],
       spots: state.days[filteredAppointmentsDays].spots,
@@ -93,7 +89,7 @@ export default function useApplicationData() {
       [id]: appointment,
     };
 
-    //Filter days Array to get that day's name
+    //Steps to get remaining spots when appointment is cancelled
     const filteredAppointmentsDays = state.days.findIndex((singleDay) =>
       singleDay.appointments.includes(id)
     );
