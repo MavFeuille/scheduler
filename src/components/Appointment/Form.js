@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import InterviewerList from "components/InterviewerList";
 import Button from "components/Button";
 
@@ -10,16 +10,16 @@ export default function Form(props) {
 
   //Helper function to clear form values
   const reset = () => {
-    setName("")
-    setInterviewer(null)
-  }
+    setName("");
+    setInterviewer(null);
+  };
 
   //Action after 'Cancel' button is clicked
   const cancel = () => {
     reset();
     props.onCancel();
-  }
-  
+  };
+
   //Action if name field is empty
   const validate = () => {
     if (name === "") {
@@ -32,18 +32,18 @@ export default function Form(props) {
     }
     setError("");
     props.onSave(name, interviewer);
-  }
- 
+  };
+
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
-        <form autoComplete="off" onSubmit={event => event.preventDefault()}>
-          <input 
+        <form autoComplete="off" onSubmit={(event) => event.preventDefault()}>
+          <input
             className="appointment__create-input text--semi-bold"
             value={name}
             type="text"
             placeholder="Enter Student Name"
-            onChange={event => setName(event.target.value)}
+            onChange={(event) => setName(event.target.value)}
             data-testid="student-name-input"
           />
         </form>
@@ -56,8 +56,16 @@ export default function Form(props) {
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger onClick={cancel}>Cancel</Button>
-          <Button confirm onSubmit={event => event.preventDefault()} onClick={event => validate()}>Save</Button>
+          <Button danger onClick={cancel}>
+            Cancel
+          </Button>
+          <Button
+            confirm
+            onSubmit={(event) => event.preventDefault()}
+            onClick={(event) => validate()}
+          >
+            Save
+          </Button>
           {/* <Button onClick={event => props.onSave(name, interviewer)}>Save</Button> */}
         </section>
       </section>

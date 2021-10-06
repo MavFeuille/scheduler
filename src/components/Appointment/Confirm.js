@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
 import Button from "components/Button";
 import "components/Appointment/styles.scss";
 
 export default function Confirm(props) {
-  
   return (
     <main className="appointment__card appointment__card--confirm">
       <h1 className="text--semi-bold">{props.message}</h1>
@@ -16,5 +15,5 @@ export default function Confirm(props) {
         </Button>
       </section>
     </main>
-  )
+  );
 }
