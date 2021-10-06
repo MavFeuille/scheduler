@@ -17,19 +17,16 @@ export default function useApplicationData() {
       axios.get("/api/appointments"),
       axios.get("/api/interviewers"),
     ]).then((response) => {
-      // console.log(response.data);
       setState((prev) => ({
         ...prev,
         // ({
         days: response[0].data,
         appointments: response[1].data,
         interviewers: response[2].data,
-        // spots: response[3].spots.data
       }));
     });
   }, [setState]);
 
-  
   const bookInterview = (id, interview) => {
     console.log(id, interview);
 
@@ -43,17 +40,18 @@ export default function useApplicationData() {
       [id]: appointment,
     };
 
-    //Steps to get remaining spots when appointment is booked
+    //Filter days Array to get that day's name for later update spots
     const filteredAppointmentsDays = state.days.findIndex((singleDay) =>
       singleDay.appointments.includes(id)
     );
-   
+
     let day = {
       ...state.days[filteredAppointmentsDays],
       spots: state.days[filteredAppointmentsDays].spots,
     };
     console.log("* day *", day);
 
+    //Update spots when appointment is booked
     if (!state.appointments[id].interview) {
       day = {
         ...state.days[filteredAppointmentsDays],
@@ -89,11 +87,12 @@ export default function useApplicationData() {
       [id]: appointment,
     };
 
-    //Steps to get remaining spots when appointment is cancelled
+    //Filter days Array to get that day's name for later update spots
     const filteredAppointmentsDays = state.days.findIndex((singleDay) =>
       singleDay.appointments.includes(id)
     );
 
+    //Update spots when appointment is cancelled
     const day = {
       ...state.days[filteredAppointmentsDays],
       spots: state.days[filteredAppointmentsDays].spots + 1,
