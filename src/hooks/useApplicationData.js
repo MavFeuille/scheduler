@@ -50,11 +50,27 @@ export default function useApplicationData() {
      //Filter days Array to get that day's name
     const filteredAppointmentsDays= state.days.findIndex(singleDay => singleDay.appointments.includes(id));
 
-    const day = {
+    // const day = {
+    //   ...state.days[filteredAppointmentsDays],
+    //   spots: state.days[filteredAppointmentsDays].spots - 1
+    // }
+
+    let day = {
       ...state.days[filteredAppointmentsDays],
-      spots: state.days[filteredAppointmentsDays].spots - 1
+      spots: state.days[filteredAppointmentsDays].spots
     }
     console.log("* day *", day);
+
+    if(!state.appointments[id].interview) {
+      day = {
+        ...state.days[filteredAppointmentsDays],
+      spots: state.days[filteredAppointmentsDays].spots - 1
+      } 
+    } else {
+        day = {...state.days[filteredAppointmentsDays],
+          spots: state.days[filteredAppointmentsDays].spots}
+    }
+    
 
     const days = [...state.days]
     days.splice(filteredAppointmentsDays, 1, day)
@@ -66,8 +82,6 @@ export default function useApplicationData() {
         appointments,
         days
       });
-     
-      
     })
   }
 
