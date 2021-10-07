@@ -32,3 +32,12 @@ npm test
 ```sh
 npm run storybook
 ```
+
+## Main Dependencies
+  - axios version 0.21.4 or higher
+  - classnames version 2.2.6 or higher
+  - react version 16.9.0 or higher
+  - react-dom version 16.9.0 or higher
+  - react-scripts version 3.0.0 or higher
+  - react-test-renderer version 16.14.0 or higher
+  - normalize.css version 8.0.1 or higher
