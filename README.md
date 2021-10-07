@@ -5,10 +5,7 @@ Interview Scheduler is a React-based single page application that allows users t
 ## Screenshots
 
 ![bookInterview](https://user-images.githubusercontent.com/87794633/136301972-cea938c2-42fd-45bd-884e-e7c7d12e0166.gif)
-<<<<<<< HEAD
 
-=======
->>>>>>> 1c5d20a4b7ca153d4fbdad29f56d2ad7e9dd3909
 
 ## Setup
 
