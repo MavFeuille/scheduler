@@ -27,6 +27,7 @@ export default function useApplicationData() {
     });
   }, [setState]);
 
+  //Function to make appointment
   const bookInterview = (id, interview) => {
     console.log(id, interview);
 
@@ -76,6 +77,7 @@ export default function useApplicationData() {
     });
   };
 
+  //Function to cancel appointments
   const cancelInterview = (id) => {
     const appointment = {
       ...state.appointments[id],
