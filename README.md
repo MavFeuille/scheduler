@@ -4,7 +4,7 @@ Interview Scheduler is a React-based single page application that allows users t
 
 ## Screenshots
 
-!["Book interview"]("https://github.com/MavFeuille/scheduler/blob/master/public/demo/bookInterview.gif?raw=true")
+!["Book interview"]("https://github.com/MavFeuille/scheduler/blob/master/public/demo/bookInterview.gif")
 
 ## Setup
 
